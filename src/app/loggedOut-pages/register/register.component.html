@@ -1,0 +1,142 @@
+<app-nav-bar></app-nav-bar>
+<div class="container flex">
+  <div class="box flex">
+    <h3 class="wt-700">Sign up</h3>
+    <!-- <div class="form-wrap">
+            <label for="name" class="form-label text-nowrap wt-500">Name</label>
+            <input type="text" class="form-control" id="name">
+        </div> -->
+    <form [formGroup]="registerForm" class="form-wrap flex" (ngSubmit)="verifyLogin()">
+        <div class="input-wrap">
+            <label for="name" class="form-label text-nowrap wt-500"
+              >Name</label
+            >
+            <input
+              type="text"
+              [class.is-invalid]="
+              registerForm.get('name').invalid &&
+                (registerForm.get('name').touched ||
+                registerForm.get('name').dirty ||
+                  !isValid)
+              "
+              [class.is-valid]="
+                !registerForm.get('name').invalid &&
+                (registerForm.get('name').touched ||
+                registerForm.get('name').dirty ||
+                  isValid)
+              "
+              formControlName="name"
+              class="form-control input-control"
+              id="name"
+            />
+            <div
+              *ngIf="
+              registerForm.get('name').invalid &&
+                (registerForm.get('name').touched ||
+                registerForm.get('name').dirty ||
+                  !isValid)
+              "
+              
+            >
+              <p
+                *ngIf="registerForm.get('name').hasError('required')"
+                class="text-danger error"
+              >
+                Enter name
+              </p>
+            </div>
+          </div>
+      <div class="input-wrap">
+        <label for="email" class="form-label text-nowrap wt-500"
+          >Email ID</label
+        >
+        <input
+          type="email"
+          [class.is-invalid]="
+          registerForm.get('email').invalid &&
+            (registerForm.get('email').touched ||
+            registerForm.get('email').dirty ||
+              !isValid)
+          "
+          [class.is-valid]="
+            !registerForm.get('email').invalid &&
+            (registerForm.get('email').touched ||
+            registerForm.get('email').dirty ||
+              isValid)
+          "
+          formControlName="email"
+          class="form-control input-control"
+          id="email"
+        />
+        <div
+          *ngIf="
+          registerForm.get('email').invalid &&
+            (registerForm.get('email').touched ||
+            registerForm.get('email').dirty ||
+              !isValid)
+          "
+          
+        >
+          <p
+            *ngIf="registerForm.get('email').hasError('required')"
+            class="text-danger error"
+          >
+            Enter Email
+          </p>
+          <p
+            *ngIf="registerForm.get('email').errors?.['email']"
+            class="text-danger error"
+          >
+            Enter Valid Email
+          </p>
+        </div>
+      </div>
+      <div class="input-wrap">
+        <label for="password" class="form-label text-nowrap wt-500"
+          >Password</label
+        >
+        <input
+          type="password" formControlName="password"
+          class="form-control input-control"
+          id="password" [class.is-invalid]="
+          registerForm.get('password').invalid &&
+          (registerForm.get('password').touched ||
+          registerForm.get('password').dirty ||
+            !isValid)
+        "
+        [class.is-valid]="
+          !registerForm.get('password').invalid &&
+          (registerForm.get('password').touched ||
+          registerForm.get('password').dirty ||
+            isValid)
+        "
+        />
+        <div
+          *ngIf="
+          registerForm.get('password').invalid &&
+            (registerForm.get('password').touched ||
+            registerForm.get('password').dirty ||
+              !isValid)
+          "
+         
+        >
+          <p
+            *ngIf="registerForm.get('password').hasError('required')"
+            class="text-danger error"
+          >
+            Enter Password
+          </p>
+          <p
+            *ngIf="registerForm.get('password').hasError('minlength')"
+            class="text-danger error"
+          >
+            Enter minimum 8 characters
+          </p>
+      </div>
+      </div>
+      <button type="submit" class="primary-btn">Register</button>
+    </form>
+    <hr />
+    <a (click)="login()" class="btn btn-link text-decoration-none">Login</a>
+  </div>
+</div>

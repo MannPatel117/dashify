@@ -1,1 +1,33 @@
-<p>nav-bar works!</p>
+<nav class="navbar navbar-expand-lg c-padding">
+    <div class="container"> <!-- Wrap the content in a container for proper alignment -->
+
+        <!-- Brand logo at the left -->
+        <a class="navbar-brand wt-700" (click)="main()">Dashify</a>
+        
+        <!-- Hamburger Button (Toggle Button) -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+            <div class="hamburger hamburger--spring" [class.is-active]="!isCollapsed">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </div>
+        </button>
+
+        <!-- Navbar Collapse -->
+        <div class="collapse navbar-collapse" id="navbarColor03" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav mx-auto d-flex gap-5"> <!-- Use mx-auto class to center align -->
+                <li class="nav-item active">
+                    <a class="nav-link wt-500" (click)="main()">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link wt-500" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link wt-500" href="#">Link2</a>
+                </li>
+            </ul>
+            <button *ngIf="this.navService.main || this.navService.register" (click)="login()" class="primary-btn">Login</button>
+            <button *ngIf="this.navService.login" (click)="register()" class="primary-btn">Register</button> <!-- Use Bootstrap btn class -->
+        </div>
+    </div>
+</nav>
