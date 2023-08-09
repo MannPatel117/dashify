@@ -1,12 +1,19 @@
 <app-nav-bar></app-nav-bar>
 <div class="container flex">
-  <div class="box flex">
+  
+  <div style="position: relative" class="box flex">
+    <div *ngIf="loading" class="box loading flex">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <h3 class="wt-700">Sign up</h3>
     <!-- <div class="form-wrap">
             <label for="name" class="form-label text-nowrap wt-500">Name</label>
             <input type="text" class="form-control" id="name">
         </div> -->
     <form [formGroup]="registerForm" class="form-wrap flex" (ngSubmit)="verifyLogin()">
+      
         <div class="input-wrap">
             <label for="name" class="form-label text-nowrap wt-500"
               >Name</label
@@ -50,7 +57,7 @@
         <label for="email" class="form-label text-nowrap wt-500"
           >Email ID</label
         >
-        <input
+        <input autocomplete="email"
           type="email"
           [class.is-invalid]="
           registerForm.get('email').invalid &&
@@ -95,7 +102,7 @@
         <label for="password" class="form-label text-nowrap wt-500"
           >Password</label
         >
-        <input
+        <input autocomplete="current-password"
           type="password" formControlName="password"
           class="form-control input-control"
           id="password" [class.is-invalid]="

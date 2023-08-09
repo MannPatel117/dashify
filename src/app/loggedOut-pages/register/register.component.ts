@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavServiceService } from '../nav-service.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,10 @@ import { NavServiceService } from '../nav-service.service';
 export class RegisterComponent implements OnInit{
   registerForm: FormGroup;
   isValid = true;
-  constructor(private navService: NavServiceService, private form: FormBuilder) {
+  loading=false;
+  toastTitle: string = 'Toast Title';
+  toastMessage: string = 'This is a toast message';
+  constructor(private navService: NavServiceService, private form: FormBuilder, private localStorage: LocalStorageService) {
 
   }
 
@@ -23,13 +27,22 @@ export class RegisterComponent implements OnInit{
     })
   }
 
-  verifyLogin(){
+  async verifyLogin(){
     if(this.registerForm.invalid)
     {
+      this.loading = true;
       this.isValid=false;
+      setTimeout(() => {
+        this.loading=false;
+      }, 100);
     }
     else{
-      console.log("Hell", this.registerForm.value)
+      this.loading=true;
+      const res= await this.localStorage.registeruser(this.registerForm.value.email,this.registerForm.value);
+      setTimeout(()=>{
+        this.loading=false;
+      }, 1000)
+      this.login();
     }
   }
 

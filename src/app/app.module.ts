@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './loggedOut-pages/login/login.component'
 import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './loggedOut-pages/register/register.component';
 import { MainComponent } from './loggedOut-pages/main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     NavBarComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbCollapseModule,
     ReactiveFormsModule,
+    NgbTooltipModule,
+     ToastComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

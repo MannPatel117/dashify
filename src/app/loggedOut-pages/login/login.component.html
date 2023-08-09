@@ -11,7 +11,7 @@
         <label for="email" class="form-label text-nowrap wt-500"
           >Email ID</label
         >
-        <input
+        <input autocomplete="email"
           type="email"
           [class.is-invalid]="
             loginForm.get('email').invalid &&
@@ -56,7 +56,7 @@
         <label for="password" class="form-label text-nowrap wt-500"
           >Password</label
         >
-        <input
+        <input autocomplete="current-password"
           type="password" formControlName="password"
           class="form-control input-control"
           id="password" [class.is-invalid]="
@@ -101,3 +101,4 @@
     <a (click)="register()" class="btn btn-link text-decoration-none">Register</a>
   </div>
 </div>
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
