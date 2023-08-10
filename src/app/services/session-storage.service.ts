@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionStorageService {
 
-  constructor() { }
+  constructor(private router: Router) { }
   createSession(){
     sessionStorage.setItem("Authstatus", "111");
   }
 
   destorySession(){
-    sessionStorage.removeItem("Authstatus")
+    sessionStorage.removeItem("Authstatus");
+    this.router.navigate(['/main']);
   }
 
   findSession(){

@@ -10,6 +10,7 @@ import { RegisterComponent } from './loggedOut-pages/register/register.component
 import { MainComponent } from './loggedOut-pages/main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './components/toast/toast.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ToastComponent } from './components/toast/toast.component';
     HomeComponent,
     NavBarComponent,
     RegisterComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,

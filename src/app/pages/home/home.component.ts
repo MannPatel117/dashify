@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
@@ -8,13 +7,12 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private sessionStorage: SessionStorageService, private router: Router)
+  constructor(private sessionStorage: SessionStorageService)
   {
 
   }
 
   logout(){
-    this.sessionStorage.destorySession();
-    this.router.navigate(['/main']);
+    this.sessionStorage.destorySession();   
   }
 }

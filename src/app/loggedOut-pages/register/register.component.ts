@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit{
       const res= await this.localStorage.registeruser(this.registerForm.value.email,this.registerForm.value);
       setTimeout(()=>{
         this.loading=false;
-      }, 1000)
+      }, 2000)
       this.login();
     }
   }
