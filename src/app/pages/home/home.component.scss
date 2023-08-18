@@ -1,3 +1,21 @@
-.main{
-    background-color: lightblue;
+.main {
+  background-color: lightblue;
+  display: flex;
+  width: 100vw;
 }
+
+@media (orientation: portrait) {
+  app-side-nav {
+    position: absolute;
+    left: -100vw;
+    transition: 1s linear;
+    top: 0;
+  }
+}
+
+.active-hamburger {
+  left: 0vw;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+

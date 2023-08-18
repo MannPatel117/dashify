@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavbuttonService } from 'src/app/componenets/navbutton.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent {
-  constructor(private sessionStorage: SessionStorageService){}
+  constructor(private sessionStorage: SessionStorageService, public nav: NavbuttonService){}
   logout(){
     this.sessionStorage.destorySession();   
   }

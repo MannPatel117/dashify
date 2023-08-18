@@ -1,0 +1,20 @@
+.nav{
+    width: 100vw;
+    justify-content: space-between;
+    padding-inline: 5vw;
+    padding-block: 5vh;
+    background-color: white;
+}
+
+.logo {
+    display: flex;
+    gap: 0.5rem;
+    a {
+      font-size: 1.5rem;
+    }
+  }
+  
+  button{
+    background-color: transparent;
+    border: 0;
+  }

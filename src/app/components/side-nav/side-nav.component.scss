@@ -63,6 +63,7 @@ h5 {
 }
 
 .text-wrap:hover {
+  cursor: pointer;
   background-color: #ece7e7;
   a {
     color: black;
@@ -83,5 +84,24 @@ h5 {
 .text-wrap2:hover {
     a{
         color: black;
+        cursor: pointer;
     }
+}
+
+.active{
+  
+   background-color: #ece7e7;
+  
+  a {
+    color: black;
+  }
+  .custom-svg {
+    --rect-fill: black;
+  }
+}
+
+@media (orientation: portrait) {
+  .sidenav{
+    width: 60vw;
+  }
 }

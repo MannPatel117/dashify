@@ -6,25 +6,25 @@
         </div>
         <div class="main-menu flex-col align-left">
             <h5 class="wt-700">MAIN MENU</h5>
-            <div class="text-wrap flex left">
+            <div routerLink="dashboard" class="text-wrap flex left" routerLinkActive="active" (click)="nav.toggle()">
                 <svg class="custom-svg" width="15" height="15" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="10" height="12" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect y="14" width="10" height="8" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect x="11" width="10" height="7" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect x="11" y="9" width="10" height="13" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                 </svg> 
-                <a class="flex link left">Dashboard</a>
+                <a routerLink="dashboard" class="flex link left">Dashboard</a>
             </div>
-            <div class="text-wrap flex left">
+            <div routerLink="users" class="text-wrap flex left" routerLinkActive="active" (click)="nav.toggle()">
                 <svg class="custom-svg" width="15" height="15" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="10" height="12" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect y="14" width="10" height="8" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect x="11" width="10" height="7" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect x="11" y="9" width="10" height="13" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                 </svg> 
-                <a class="flex link left">Users</a>
+                <a routerLink="users" class="flex link left">Users</a>
             </div>
-            <div class="text-wrap flex left">
+            <div class="text-wrap flex left" (click)="nav.toggle()">
                 <svg class="custom-svg" width="15" height="15" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="10" height="12" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect y="14" width="10" height="8" rx="2" [attr.fill]="'var(--rect-fill)'"/>
@@ -33,7 +33,7 @@
                 </svg> 
                 <a class="flex link left">Accounts</a>
             </div>
-            <div class="text-wrap flex left">
+            <div class="text-wrap flex left" (click)="nav.toggle()">
                 <svg class="custom-svg" width="15" height="15" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="10" height="12" rx="2" [attr.fill]="'var(--rect-fill)'"/>
                     <rect y="14" width="10" height="8" rx="2" [attr.fill]="'var(--rect-fill)'"/>
@@ -71,6 +71,6 @@
             </svg>
             <a class="flex left wt-700">Settings</a>
         </div>
-        <button class="btn btn-danger" (click)="logout()">Logout</button>
+        <button class="btn btn-danger" (click)="logout(); nav.toggle()">Logout</button>
     </div>
 </div>
